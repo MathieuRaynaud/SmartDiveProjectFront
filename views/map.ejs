@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="main.css">
+    <title>Smart Dive Project</title>
+</head>
+
+<body>
+
+    <div class="header">
+        <h1>Smart Dive Project</h1>
+        <h2>Innovative INSA x Arago Project</h2>
+    </div>
+
+    <div class="container">
+        <p>Welcome in the Smart Dive Project page !</p>
+    </div>
+
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            var myLatLng = {lat: -25.363, lng: 131.044};
+
+            // Create a map object and specify the DOM element
+            // for display.
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: myLatLng,
+                zoom: 4
+            });
+
+            // Create a marker and set its position.
+            var marker = new google.maps.Marker({
+                map: map,
+                position: myLatLng,
+                title: 'Hello World!'
+            });
+        }
+
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDshBsgzHp1KwEorUZK9IETfqBX5CBgCHo&callback=initMap">
+    </script>
+
+</body>
+
+</html>
