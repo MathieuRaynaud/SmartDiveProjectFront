@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="main.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="data_processing.js"></script>
     <title>Smart Dive Project</title>
 </head>
 
@@ -20,8 +22,8 @@
         <div id="map"></div>
     </div>
 
-
     <script>
+
         function initMap() {
             var mapCenter = {lat: 42.484964, lng: 3.137063};
             var mapPing1 = {lat: 42.482926, lng: 3.132298};
@@ -51,7 +53,7 @@
             var marker2 = new google.maps.Marker({
                 map: map,
                 position: mapPing2,
-                title: 'Second Map Ping'
+                title: 'Second Map Ping\nAn information here'
             });
 
             // Create a marker and set its position.

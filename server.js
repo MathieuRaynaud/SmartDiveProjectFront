@@ -6,6 +6,7 @@ var app = express();
 var app_logs = new EventEmitter();
 
 app.use(express.static('style'));
+app.use(express.static('scripts'));
 
 app.get('/', function(req, res) {
     res.setHeader('Content-Type', 'text/html');
