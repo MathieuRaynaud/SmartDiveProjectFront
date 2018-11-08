@@ -1,5 +1,5 @@
 body{
-    text-align: left;
+    text-align: center;
     font-family: 'Trebuchet MS', sans-serif;
 }
 
@@ -16,7 +16,7 @@ body{
 }
 
 .container{
-    width: 100%;
+    width: 90%;
     padding: 5%;
     text-align: left;
 }
@@ -26,6 +26,7 @@ h1{
 }
 
 #map {
-    height: 400px;  /* The height is 400 pixels */
-    width: 100%;  /* The width is the width of the web page */
+    padding-top: 50%;
+    width: 50%;  /* The width is the width of the web page */
+    margin: auto;
 }

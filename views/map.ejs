@@ -15,26 +15,71 @@
     </div>
 
     <div class="container">
-        <p>Welcome in the Smart Dive Project page !</p>
+        <h1>Welcome in the Smart Dive Project page !</h1>
+
+        <div id="map"></div>
     </div>
 
-    <div id="map"></div>
+
     <script>
         function initMap() {
-            var myLatLng = {lat: -25.363, lng: 131.044};
+            var mapCenter = {lat: 42.484964, lng: 3.137063};
+            var mapPing1 = {lat: 42.482926, lng: 3.132298};
+            var mapPing2 = {lat: 42.482055, lng: 3.135999};
+            var mapPing3 = {lat: 42.484191, lng: 3.137383};
+            var mapPing4 = {lat: 42.485212, lng: 3.135913};
+            var mapPing5 = {lat: 42.483764, lng: 3.140977};
+            var mapPing6 = {lat: 42.483384, lng: 3.134432};
+
+
 
             // Create a map object and specify the DOM element
             // for display.
             var map = new google.maps.Map(document.getElementById('map'), {
-                center: myLatLng,
-                zoom: 4
+                center: mapCenter,
+                zoom: 16
             });
 
             // Create a marker and set its position.
-            var marker = new google.maps.Marker({
+            var marker1 = new google.maps.Marker({
                 map: map,
-                position: myLatLng,
-                title: 'Hello World!'
+                position: mapPing1,
+                title: 'First Map Ping'
+            });
+
+            // Create a marker and set its position.
+            var marker2 = new google.maps.Marker({
+                map: map,
+                position: mapPing2,
+                title: 'Second Map Ping'
+            });
+
+            // Create a marker and set its position.
+            var marker3 = new google.maps.Marker({
+                map: map,
+                position: mapPing3,
+                title: 'Third Map Ping'
+            });
+
+            // Create a marker and set its position.
+            var marker4 = new google.maps.Marker({
+                map: map,
+                position: mapPing4,
+                title: 'Fourth Map Ping'
+            });
+
+            // Create a marker and set its position.
+            var marker5 = new google.maps.Marker({
+                map: map,
+                position: mapPing5,
+                title: 'Fifth Map Ping'
+            });
+
+            // Create a marker and set its position.
+            var marker6 = new google.maps.Marker({
+                map: map,
+                position: mapPing6,
+                title: 'Sixth Map Ping'
             });
         }
 
