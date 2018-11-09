@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="main.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="data_processing.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
     <title>Smart Dive Project</title>
 </head>
 
@@ -24,11 +25,43 @@
 
     <script>
 
-        var data_matrix = processData("1541692273,12.4,1.2,42.482926,3.132298,1.9999999999999996\n" +
-            "1541692573,11.3,1.9,42.484191,3.137383,9.0\n" +
-            "1541692873,13.2,2.6,42.483384,3.134432,16.0");
+        var socket = io('http://localhost:8080');
 
-        function initMap() {
+        var data_matrix;
+
+        socket.on('datas', function (message) {
+            data_matrix = message;
+
+            var mapCenter = {lat: 42.484964, lng: 3.187063};
+
+            // Create a map object and specify the DOM element
+            // for display.
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: mapCenter,
+                zoom: 10
+            });
+
+            for (var i = 0; i < data_matrix.length; i++) {
+                var timestamp = data_matrix[i][0];
+                var temperature = data_matrix[i][1];
+                var pressure = data_matrix[i][2];
+                var latitude = parseFloat(data_matrix[i][3]);
+                var longitude = parseFloat(data_matrix[i][4]);
+                var depth = data_matrix[i][5];
+
+                var coordinates = {lat: latitude, lng: longitude};
+                console.log(data_matrix[i]);
+                new google.maps.Marker({
+                    map: map,
+                    position: coordinates,
+                    title: 'Temperature: ' + temperature.toString() + '°C\n' +
+                        'Pressure: ' + pressure.toString() + 'bar\n' +
+                        'Depth: ' + depth.toString() + 'm'
+                });
+            }
+        });
+
+        /*function initMap() {
             var mapCenter = {lat: 42.484964, lng: 3.137063};
 
             // Create a map object and specify the DOM element
@@ -38,7 +71,7 @@
                 zoom: 16
             });
 
-            for (var i=0; i<data_matrix.length; i++) {
+            for (var i = 0; i < data_matrix.length; i++) {
                 var timestamp = data_matrix[i][0];
                 var temperature = data_matrix[i][1];
                 var pressure = data_matrix[i][2];
@@ -55,8 +88,7 @@
                         'Depth: ' + depth.toString() + 'm'
                 });
             }
-
-        }
+        }*/
 
     </script>
     <script async defer

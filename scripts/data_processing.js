@@ -15,10 +15,10 @@ function processData(allText) {
     var record_num = 6;  // or however many elements there are in each row
     var allTextLines = allText.split('\n');
     var data_matrix = new Array(allTextLines.length);
-    for (var d=0; d<allTextLines.length; d++){
-        data_matrix[d]=new Array(record_num);
+    for (var d = 0; d < allTextLines.length; d++) {
+        data_matrix[d] = new Array(record_num);
     }
-    for (var j=0; j < allTextLines.length; j++) {
+    for (var j = 0; j < allTextLines.length; j++) {
         var entries = allTextLines[j].split(',');
 
         for (var i = 0; i < entries.length; i++) {
