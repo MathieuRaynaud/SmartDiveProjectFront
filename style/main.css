@@ -1,9 +1,12 @@
 body{
+    width: 80%;
+    margin: auto;
     text-align: center;
     font-family: 'Trebuchet MS', sans-serif;
 }
 
 .header{
+    padding: 20px 0px;
     text-align: center;
 }
 
@@ -18,15 +21,18 @@ body{
 .container{
     width: 90%;
     padding: 5%;
-    text-align: left;
 }
 
 h1{
     font-size: 25px;
 }
 
+h2{
+    font-size: 20px;
+}
+
 #map {
     padding-top: 50%;
-    width: 50%;  /* The width is the width of the web page */
+    width: 60%;  /* The width is the width of the web page */
     margin: auto;
 }

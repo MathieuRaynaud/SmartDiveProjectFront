@@ -20,6 +20,7 @@
     <div class="container">
         <h1>Welcome in the Smart Dive Project page !</h1>
 
+        <h2>Drag your mouse on a pin to obtain informations about the location</h2>
         <div id="map"></div>
     </div>
 
@@ -50,7 +51,6 @@
                 var depth = data_matrix[i][5];
 
                 var coordinates = {lat: latitude, lng: longitude};
-                console.log(data_matrix[i]);
                 new google.maps.Marker({
                     map: map,
                     position: coordinates,
@@ -60,35 +60,6 @@
                 });
             }
         });
-
-        /*function initMap() {
-            var mapCenter = {lat: 42.484964, lng: 3.137063};
-
-            // Create a map object and specify the DOM element
-            // for display.
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: mapCenter,
-                zoom: 16
-            });
-
-            for (var i = 0; i < data_matrix.length; i++) {
-                var timestamp = data_matrix[i][0];
-                var temperature = data_matrix[i][1];
-                var pressure = data_matrix[i][2];
-                var latitude = parseFloat(data_matrix[i][3]);
-                var longitude = parseFloat(data_matrix[i][4]);
-                var depth = data_matrix[i][5];
-
-                var coordinates = {lat: latitude, lng: longitude};
-                new google.maps.Marker({
-                    map: map,
-                    position: coordinates,
-                    title: 'Temperature: ' + temperature.toString() + '°C\n' +
-                        'Pressure: ' + pressure.toString() + 'bar\n' +
-                        'Depth: ' + depth.toString() + 'm'
-                });
-            }
-        }*/
 
     </script>
     <script async defer

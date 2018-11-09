@@ -11,7 +11,7 @@ var app_logs = new EventEmitter();
 app.use(express.static('style'));
 app.use(express.static('scripts'));
 app.use(express.static('datas'));
-app.use(express.static('socket.io'));
+app.use(express.static('images'));
 
 app.get('/', function(req, res) {
     res.setHeader('Content-Type', 'text/html');
@@ -25,13 +25,6 @@ app.get('/', function(req, res) {
 app_logs.on('listening', function(){
     console.log('App listening at localhost:8080');
 });
-
-/*// Chargement de socket.io
-var io = require('socket.io').listen(server);
-
-io.sockets.on('connection', function (socket, pseudo) {
-    socket.emit('datas', datas.toString());
-});*/
 
 if(HTTPserver.listen(8080)){
     app_logs.emit('listening');
