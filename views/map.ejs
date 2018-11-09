@@ -24,6 +24,10 @@
 
     <script>
 
+        var data_matrix = processData("1541692273,12.4,1.2,42.482926,3.132298,1.9999999999999996\n" +
+            "1541692573,11.3,1.9,42.484191,3.137383,9.0\n" +
+            "1541692873,13.2,2.6,42.483384,3.134432,16.0");
+
         function initMap() {
             var mapCenter = {lat: 42.484964, lng: 3.137063};
             var mapPing1 = {lat: 42.482926, lng: 3.132298};
@@ -33,8 +37,6 @@
             var mapPing5 = {lat: 42.483764, lng: 3.140977};
             var mapPing6 = {lat: 42.483384, lng: 3.134432};
 
-
-
             // Create a map object and specify the DOM element
             // for display.
             var map = new google.maps.Map(document.getElementById('map'), {
@@ -42,7 +44,25 @@
                 zoom: 16
             });
 
-            // Create a marker and set its position.
+            for (var i=0; i<data_matrix.length; i++) {
+                var timestamp = data_matrix[i][0];
+                var temperature = data_matrix[i][1];
+                var pressure = data_matrix[i][2];
+                var latitude = parseFloat(data_matrix[i][3]);
+                var longitude = parseFloat(data_matrix[i][4]);
+                var depth = data_matrix[i][5];
+
+                var coordinates = {lat: latitude, lng: longitude};
+                new google.maps.Marker({
+                    map: map,
+                    position: coordinates,
+                    title: 'Temperature: ' + temperature.toString() + '°C\n' +
+                        'Pressure: ' + pressure.toString() + 'bar\n' +
+                        'Depth: ' + depth.toString() + 'm'
+                });
+            }
+
+            /*// Create a marker and set its position.
             var marker1 = new google.maps.Marker({
                 map: map,
                 position: mapPing1,
@@ -82,12 +102,12 @@
                 map: map,
                 position: mapPing6,
                 title: 'Sixth Map Ping'
-            });
+            });*/
         }
 
-        processData("1541692273,12.4,1.2,0.0,0.0,1.9999999999999996\n" +
+       /* processData("1541692273,12.4,1.2,0.0,0.0,1.9999999999999996\n" +
             "1541692573,11.3,1.9,0.0,0.0,9.0\n" +
-            "1541692873,13.2,2.6,0.0,0.0,16.0");
+            "1541692873,13.2,2.6,0.0,0.0,16.0");*/
 
     </script>
     <script async defer

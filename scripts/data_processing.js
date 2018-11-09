@@ -12,20 +12,19 @@ function processData(allText) {
         [timestamp  , temperature   , pressure  , lat   , long  , depth             ]
         [1541692273 , 12.4          , 1.2       , 0.0   , 0.0   , 1.9999999999999996]
      */
-    console.log(allText);
     var record_num = 6;  // or however many elements there are in each row
     var allTextLines = allText.split('\n');
-    var data_matrix = new Array(6);
-    for (var d=0; d<record_num; d++){
-        data_matrix[d]=new Array(allTextLines.length);
+    var data_matrix = new Array(allTextLines.length);
+    for (var d=0; d<allTextLines.length; d++){
+        data_matrix[d]=new Array(record_num);
     }
     for (var j=0; j < allTextLines.length; j++) {
         var entries = allTextLines[j].split(',');
 
         for (var i = 0; i < entries.length; i++) {
 
-            data_matrix[i][j] = entries[i];
+            data_matrix[j][i] = entries[i];
         }
     }
-    console.log(data_matrix);
+    return data_matrix;
 }
